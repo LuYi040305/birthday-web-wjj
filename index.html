@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e89aaa">
+  <title>给温家家的生日祝福</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#633a45; --rose:#ed9ead; --cream:#fff7f2; --paper:#fffdf9; --script:'ZCOOL XiaoWei', serif; --latin:'Dancing Script', cursive; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; scroll-snap-type:y mandatory; overflow-y:auto; background:#261a37; }
+    body { margin:0; color:var(--ink); font-family:system-ui,-apple-system,'Microsoft YaHei',sans-serif; overflow-x:hidden; }
+    .page { min-height:100svh; min-height:100vh; scroll-snap-align:start; scroll-snap-stop:always; position:relative; display:grid; place-items:center; isolation:isolate; overflow:hidden; padding:5.5rem max(1.2rem, 6vw) 4.8rem; }
+    .page::before { content:''; position:absolute; inset:0; z-index:-2; background:radial-gradient(circle at 20% 18%,rgba(255,255,255,.7),transparent 25%),radial-gradient(circle at 80% 78%,rgba(255,216,183,.55),transparent 30%); }
+    .hero { text-align:center; background:linear-gradient(145deg,#fbd2d6,#f8b8b9 48%,#f9d7b9); }
+    .hero::after { content:''; position:absolute; inset:-30%; z-index:-1; background:conic-gradient(from 120deg,transparent,#fff8d977,transparent,#e799b755,transparent); animation:drift 18s linear infinite; }
+    .content { width:min(1060px,100%); position:relative; z-index:1; }
+    .eyebrow { margin:0 0 .7rem; color:#b75e74; font:600 clamp(1rem,2.5vw,1.25rem)/1 var(--latin); letter-spacing:.08em; }
+    h1,h2 { font-family:var(--script); font-weight:400; } h1 { margin:.15em 0; font-size:clamp(2.65rem,8vw,6rem); line-height:1.22; text-shadow:0 4px 16px #fff9; }
+    h2 { margin:0; font-size:clamp(2.15rem,5.2vw,4.35rem); line-height:1.25; } .copy { margin:1rem 0 0; font-size:clamp(1rem,2.1vw,1.22rem); line-height:1.9; }
+    .signature { margin:1rem 0 .25rem; font:600 clamp(1.5rem,4vw,2.5rem)/1.2 var(--latin); }.date { margin:0; font-size:.95rem; letter-spacing:.15em; }
+    .heart { display:inline-block; margin-left:.2em; color:#df5372; font:clamp(2rem,5vw,3.8rem)/.6 sans-serif; vertical-align:middle; animation:pulse 1.7s ease-in-out infinite; }
+    .petals,.stars { position:absolute; inset:0; pointer-events:none; overflow:hidden; } .petal,.star { position:absolute; opacity:.7; animation:fall var(--time) linear infinite; animation-delay:var(--delay); }
+    .petal { top:-10%; left:var(--left); width:14px; height:20px; border-radius:100% 0 100% 0; background:linear-gradient(135deg,#fff7fa,#ef98ad); transform:rotate(25deg); }.star { top:var(--top); left:var(--left); width:4px; height:4px; border-radius:50%; background:#fff; box-shadow:0 0 12px 4px #fff8; animation-name:twinkle; }
+    .section-warm { background:linear-gradient(145deg,#fff3ed,#f7c5c9); }.section-day { background:linear-gradient(145deg,#f9d7ce,#f7efe8); }.section-treasure { background:linear-gradient(145deg,#f3b4bd,#fbe4d1); }.future { color:#fdf3fa; background:linear-gradient(145deg,#1e2449,#5c416d 54%,#d37986); }.future::before { background:radial-gradient(circle at 15% 20%,#ffffff24,transparent 18%),radial-gradient(circle at 70% 70%,#f7bd8c44,transparent 30%); }.letter-page { background:linear-gradient(145deg,#f6c7bd,#ead6c8 48%,#b9c7dc); }
+    .layout { display:grid; align-items:center; grid-template-columns:minmax(0,1fr) minmax(260px,.9fr); gap:clamp(2rem,7vw,7rem); }.layout.reverse { grid-template-columns:minmax(260px,.9fr) minmax(0,1fr); }.layout.reverse .words { order:2; }
+    .photo-stack,.photo-pair,.photo-grid { display:grid; gap:1rem; }.photo-stack { grid-template-columns:1fr; }.photo-pair { grid-template-columns:repeat(2,1fr); }.photo-grid { grid-template-columns:repeat(3,1fr); }
+    .photo-card { position:relative; min-height:170px; border:8px solid #fffc; border-radius:20px; overflow:hidden; box-shadow:0 18px 35px #633a4530; background:linear-gradient(135deg,#e99baa,#ffcfa6); transition:transform .45s ease,box-shadow .45s ease; transform:perspective(800px) rotateX(0); }
+    .photo-card:hover { transform:translateY(-8px) scale(1.025) rotate(0deg)!important; box-shadow:0 25px 42px #633a4540; }.photo-card img { width:100%; height:100%; min-height:inherit; object-fit:cover; display:block; }.photo-card.placeholder::after { content:attr(data-placeholder); position:absolute; inset:0; display:grid; place-items:center; padding:1rem; color:#fff; text-align:center; font:clamp(1.3rem,3.5vw,2rem)/1.4 var(--script); background:linear-gradient(135deg,#bc698daa,#ec9e9daa); }
+    .photo-stack .photo-card:first-child { height:clamp(270px,50vw,470px); transform:rotate(-3deg); }.photo-stack .photo-card:nth-child(2) { width:62%; height:190px; margin:-6rem 0 0 auto; transform:rotate(5deg); }.photo-pair .photo-card { height:clamp(230px,33vw,390px); }.photo-grid .photo-card { height:clamp(145px,22vw,245px); }.photo-grid .photo-card:nth-child(2) { transform:translateY(2rem) rotate(4deg); }.photo-grid .photo-card:nth-child(3) { transform:rotate(-4deg); }
+    .reveal { opacity:0; }.reveal.visible { opacity:1; animation:reveal .85s cubic-bezier(.2,.75,.25,1) both; }.reveal.left.visible { animation-name:slideLeft; }.reveal.right.visible { animation-name:slideRight; }.reveal.flip.visible { animation-name:flipIn; transform-origin:center; }
+    .music { position:fixed; right:1.1rem; top:1rem; z-index:20; width:3.5rem; height:3.5rem; border:1px solid #fff9; border-radius:50%; color:#fff; background:#9b4c668f; box-shadow:0 8px 22px #5a283740; cursor:pointer; font-size:1.3rem; backdrop-filter:blur(8px); }.music.playing .note { display:inline-block; animation:note .55s ease-in-out infinite alternate; }
+    .scroll-hint { position:absolute; bottom:1.3rem; left:50%; transform:translateX(-50%); color:#9a5369; font-size:.78rem; letter-spacing:.12em; }.scroll-hint::after { content:'↓'; display:block; font-size:1.3rem; animation:bob 1.2s ease-in-out infinite; }
+    #celebration { position:absolute; inset:0; z-index:0; width:100%; height:100%; pointer-events:none; }.future .content { z-index:1; }.letter { width:min(720px,100%); padding:clamp(1.8rem,7vw,4.8rem); border-radius:5px; background:var(--paper); box-shadow:0 25px 55px #42334e55; position:relative; transform:rotate(-.5deg); }.letter::before { content:''; position:absolute; inset:14px; border:1px solid #e9c3b3; pointer-events:none; }.letter h2 { color:#b95e75; text-align:center; font-size:clamp(2.2rem,5vw,3.5rem); }.letter p { position:relative; margin:1.15rem 0; font:clamp(1.05rem,2.3vw,1.35rem)/2.05 var(--script); }.letter .closing { margin-top:1.6rem; text-align:right; font-family:var(--latin); font-size:1.8rem; color:#b95e75; }
+    @keyframes fall { to { transform:translate3d(8vw,120vh,0) rotate(420deg); } } @keyframes twinkle { 50% { opacity:.15; transform:scale(.45); } } @keyframes drift { to { transform:rotate(360deg); } } @keyframes pulse { 50% { transform:scale(1.22); filter:drop-shadow(0 0 8px #ea5476aa); } } @keyframes bob { 50% { transform:translateY(7px); } } @keyframes note { to { transform:translateY(-5px) rotate(-8deg); } } @keyframes reveal { from { opacity:0; transform:scale(.88); } to { opacity:1; } } @keyframes slideLeft { from { opacity:0; transform:translateX(-90px); } to { opacity:1; transform:translateX(0); } } @keyframes slideRight { from { opacity:0; transform:translateX(90px); } to { opacity:1; transform:translateX(0); } } @keyframes flipIn { from { opacity:0; transform:perspective(800px) rotateY(85deg); } to { opacity:1; transform:perspective(800px) rotateY(0); } }
+    @media (max-width:700px) { .page { padding-top:5.8rem; padding-bottom:4rem; }.layout,.layout.reverse { grid-template-columns:1fr; gap:1.8rem; }.layout.reverse .words { order:0; }.photo-stack .photo-card:first-child { height:300px; }.photo-stack .photo-card:nth-child(2) { margin-top:-4.5rem; }.photo-grid .photo-card { height:145px; }.letter { padding:2.3rem 1.8rem; }.letter::before { inset:9px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; } }
+  </style>
+</head>
+<body>
+  <button class="music" type="button" aria-label="播放生日旋律" aria-pressed="false"><span class="note">♫</span></button>
+  <main>
+    <section class="page hero" id="home"><div class="petals" aria-hidden="true"></div><div class="stars" aria-hidden="true"></div><div class="content"><p class="eyebrow">A birthday story, just for you</p><h1>亲爱的<span id="recipient"></span>，<br>生日快乐<span class="heart">♥</span></h1><p class="signature" id="signature"></p><p class="date" id="date"></p></div><div class="scroll-hint">向下翻阅</div></section>
+    <section class="page section-warm"><div class="content layout"><div class="words"><p class="eyebrow" id="meeting-eyebrow"></p><h2 id="meeting-title"></h2><p class="copy" id="meeting-text"></p></div><div class="photo-stack gallery" id="meeting-gallery"></div></div></section>
+    <section class="page section-day"><div class="content layout reverse"><div class="photo-grid gallery" id="everyday-gallery"></div><div class="words"><p class="eyebrow" id="everyday-eyebrow"></p><h2 id="everyday-title"></h2><p class="copy" id="everyday-text"></p></div></div></section>
+    <section class="page section-treasure"><div class="content layout"><div class="words"><p class="eyebrow" id="treasured-eyebrow"></p><h2 id="treasured-title"></h2><p class="copy" id="treasured-text"></p></div><div class="photo-pair gallery" id="treasured-gallery"></div></div></section>
+    <section class="page future" id="future"><canvas id="celebration" aria-hidden="true"></canvas><div class="stars" aria-hidden="true"></div><div class="content layout reverse"><div class="photo-stack gallery" id="future-gallery"></div><div class="words"><p class="eyebrow" id="future-eyebrow"></p><h2 id="future-title"></h2><p class="copy" id="future-text"></p></div></div></section>
+    <section class="page letter-page"><article class="letter reveal"><h2>写给你的信</h2><div id="letter-content"></div><p class="closing" id="letter-signature"></p></article></section>
+  </main>
+  <script src="config.js"></script>
+  <script>
+    (() => {
+      'use strict';
+      const config = BIRTHDAY_CONFIG;
+      const $ = (selector) => document.querySelector(selector);
+      const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+      const defaultDate = `${tomorrow.getFullYear()}年${tomorrow.getMonth() + 1}月${tomorrow.getDate()}日`;
+      $('#recipient').textContent = config.recipient;
+      $('#signature').textContent = config.signature;
+      $('#date').textContent = config.date || defaultDate;
+      $('#letter-signature').textContent = config.signature;
+      Object.entries(config.pages).forEach(([key, page]) => {
+        ['eyebrow', 'title', 'text'].forEach((field) => $(`#${key}-${field}`).textContent = page[field]);
+        buildGallery($(`#${key}-gallery`), page.photos, page.title);
+      });
+      config.letter.split(/\n\s*\n/).filter(Boolean).forEach((paragraph) => { const p = document.createElement('p'); p.textContent = paragraph; $('#letter-content').append(p); });
+
+      // Photos are local static files; placeholders make the template attractive before they are added.
+      function buildGallery(container, photos, placeholder) {
+        const shown = photos.length ? photos : Array.from({ length: container.classList.contains('photo-grid') ? 3 : 2 });
+        shown.forEach((source, index) => {
+          const card = document.createElement('figure'); card.className = `photo-card reveal ${['left','right','flip'][index % 3]}`;
+          if (typeof source === 'string') { const image = new Image(); image.src = source; image.alt = `${placeholder}照片 ${index + 1}`; image.loading = 'lazy'; image.onerror = () => setPlaceholder(card, '把属于我们的照片，放在这里'); card.append(image); }
+          else setPlaceholder(card, '把属于我们的照片，放在这里');
+          container.append(card);
+        });
+      }
+      function setPlaceholder(card, message) { card.classList.add('placeholder'); card.dataset.placeholder = message; }
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), { threshold:.2 });
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+      const petalBox = $('.petals'), starBoxes = document.querySelectorAll('.stars');
+      Array.from({length:18}, (_,i) => { const p=document.createElement('i'); p.className='petal'; p.style.setProperty('--left',`${(i*23)%100}%`); p.style.setProperty('--time',`${9+(i%7)*1.5}s`); p.style.setProperty('--delay',`${-i*.8}s`); petalBox.append(p); });
+      starBoxes.forEach((box) => Array.from({length:18}, (_,i) => { const s=document.createElement('i'); s.className='star'; s.style.setProperty('--left',`${(i*37)%100}%`); s.style.setProperty('--top',`${(i*53)%100}%`); s.style.setProperty('--time',`${2+(i%4)}s`); s.style.setProperty('--delay',`${-i*.35}s`); box.append(s); }));
+
+      // A tiny in-browser melody avoids an unreliable external audio link.
+      const musicButton = $('.music'); let audioContext, melodyTimer, melodyStep = 0;
+      const notes = [523.25,523.25,587.33,523.25,698.46,659.25,523.25,523.25,587.33,523.25,783.99,698.46];
+      function playNote(freq) { const oscillator=audioContext.createOscillator(), gain=audioContext.createGain(); oscillator.type='sine'; oscillator.frequency.value=freq; gain.gain.setValueAtTime(.0001,audioContext.currentTime); gain.gain.exponentialRampToValueAtTime(.12,audioContext.currentTime+.03); gain.gain.exponentialRampToValueAtTime(.0001,audioContext.currentTime+.43); oscillator.connect(gain).connect(audioContext.destination); oscillator.start(); oscillator.stop(audioContext.currentTime+.45); }
+      function toggleMusic() { if (melodyTimer) { clearInterval(melodyTimer); melodyTimer=null; musicButton.classList.remove('playing'); musicButton.setAttribute('aria-pressed','false'); musicButton.setAttribute('aria-label','播放生日旋律'); return; } audioContext ||= new (window.AudioContext || window.webkitAudioContext)(); audioContext.resume(); playNote(notes[melodyStep++ % notes.length]); melodyTimer=setInterval(() => playNote(notes[melodyStep++ % notes.length]), 500); musicButton.classList.add('playing'); musicButton.setAttribute('aria-pressed','true'); musicButton.setAttribute('aria-label','暂停生日旋律'); }
+      musicButton.addEventListener('click',toggleMusic);
+
+      const canvas=$('#celebration'), ctx=canvas.getContext('2d'); let particles=[], raf=0, active=false;
+      function sizeCanvas() { canvas.width=canvas.clientWidth*devicePixelRatio; canvas.height=canvas.clientHeight*devicePixelRatio; ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0); } sizeCanvas(); addEventListener('resize',sizeCanvas);
+      function spark() { const w=canvas.clientWidth,h=canvas.clientHeight; for(let i=0;i<15;i++) { const a=Math.random()*Math.PI*2, speed=1+Math.random()*3; particles.push({x:w*(.2+Math.random()*.6),y:h*.75,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed-1.8,life:1,color:`hsla(${330+Math.random()*45}, 85%, 75%,`}); } }
+      function draw() { if(!active)return; const w=canvas.clientWidth,h=canvas.clientHeight; ctx.clearRect(0,0,w,h); if(Math.random()<.06)spark(); particles=particles.filter((p)=>p.life>.02); particles.forEach((p)=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.025;p.life*=.978;ctx.fillStyle=p.color+p.life+')';ctx.beginPath();ctx.arc(p.x,p.y,2.2,0,Math.PI*2);ctx.fill();}); raf=requestAnimationFrame(draw); }
+      new IntersectionObserver(([entry])=>{ active=entry.isIntersecting; if(active&&!raf) { draw(); } if(!active){cancelAnimationFrame(raf);raf=0;} },{threshold:.25}).observe($('#future'));
+    })();
+  </script>
+</body>
+</html>

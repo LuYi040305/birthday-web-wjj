@@ -2,7 +2,7 @@
 const BIRTHDAY_CONFIG = {
   recipient: '温家家',
   signature: '永远爱你的陆逸',
-  date: null, // null shows tomorrow; use '2026年8月8日' to fix a date.
+  date: '2026年7月21日',
   pages: {
     meeting: {
       eyebrow: '我们的开始',
